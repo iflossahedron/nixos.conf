@@ -17,7 +17,9 @@ in {
       enable = true;
       userName = "if";
       userEmail = "iflossahedron@maildepot.net";
-      defaultBranch = "main";
+      extraConfig = {
+        init = { defaultBranch = "main"; };
+      };
       aliases = {
         s = "status";
         b = "branch";
