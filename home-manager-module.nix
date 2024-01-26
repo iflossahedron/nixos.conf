@@ -17,6 +17,7 @@ in {
       enable = true;
       userName = "if";
       userEmail = "iflossahedron@maildepot.net";
+      ignores = [ "*.swp" ];
       extraConfig = {
         init = { defaultBranch = "main"; };
       };
