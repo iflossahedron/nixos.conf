@@ -62,7 +62,18 @@ in
   services.xserver = {
     layout = "us";
     xkbVariant = "";  # TODO
+    # xkb.extraLayouts = { 
   };
+
+  # services.keyd = {
+  #   enable = true;
+  #   keyboards.alpha.settings = {
+  #     main = {
+  #       # capslock = "overload(control, esc)";
+  #       leftshift = "overload(control)";
+  #     };
+  #   };
+  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
