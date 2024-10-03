@@ -78,6 +78,12 @@ in
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # nix settings
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # Enable sound with pipewire.
   # sound.enable = true;
   # hardware.pulseaudio.enable = false;
@@ -105,7 +111,7 @@ in
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      rustup
+      ## rustup
       neovim
       evince
       alacritty
@@ -126,17 +132,17 @@ in
     htop
     nmap
     python3
-    (fenix.complete.withComponents [ "cargo" "clippy" "rust-src" "rustc" "rustfmt" ])
-    rust-analyzer-nightly
+    ## (fenix.complete.withComponents [ "cargo" "clippy" "rust-src" "rustc" "rustfmt" ])
+    ## rust-analyzer-nightly
     # gnomeExtensions.appindicator
   ];
   environment.sessionVariables = {
     EDITOR = "nvim";
   };
 
-  nixpkgs.overlays = [
-    (import "${fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz"}/overlay.nix")
-  ];
+  ## nixpkgs.overlays = [
+  ##   (import "${fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz"}/overlay.nix")
+  ## ];
 
   # fileSystems."/sd" = {
   #   device = "/dev/mmcblk1p1";
@@ -160,7 +166,7 @@ in
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
